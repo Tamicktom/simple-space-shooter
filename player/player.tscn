@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_r72me"]
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 15
 script = ExtResource("1_r72me")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

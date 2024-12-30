@@ -11,19 +11,17 @@ var can_shoot: bool = true;
 func _process(delta: float) -> void:
 	move_player(delta);
 
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_pressed("shoot") and can_shoot:
 		shoot();
 		can_shoot = false;
 		$Timers/AttackCooldown.start();
 
-func move_player(delta: float) -> void:
+func move_player(_delta: float) -> void:
 	# Get the input direction and the current velocity
 	var direction = Input.get_vector("left", "right", "up", "down");
 	velocity = direction * speed;
-	
-	# Move the player
-	position += velocity * delta;
 
+	# Move the player
 	move_and_slide();
 
 func shoot():

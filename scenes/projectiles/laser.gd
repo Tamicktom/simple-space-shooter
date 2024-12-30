@@ -6,6 +6,9 @@ class_name Laser;
 var direction: Vector2 = Vector2.UP;
 var damage: float = 10.0;
 
+func _ready() -> void:
+	$SelfDestructionTimer.start();
+
 func _process(delta: float) -> void:
 	position += direction * speed * delta;
 
