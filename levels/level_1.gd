@@ -6,4 +6,3 @@ func _on_player_shoot_laser(pos:Vector2) -> void:
 	var laser:Laser = laser_scene.instantiate();
 	laser.position = pos;
 	$Projectiles.add_child(laser);
-	
