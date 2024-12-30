@@ -11,3 +11,10 @@ texture = ExtResource("1_nvc0m")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-61, 57, -61, 27, -12, 4, -6, -20, -1, -32, 2, -32, 6, -20, 11, 4, 61, 27, 61, 56)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AttackCooldown" type="Timer" parent="Timers"]
+wait_time = 0.25
+
+[connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

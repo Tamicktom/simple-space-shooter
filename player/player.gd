@@ -5,13 +5,16 @@ class_name Player;
 signal shoot_laser(pos: Vector2);
 
 @export var speed: float = 500.0;
+var can_shoot: bool = true;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	move_player(delta);
 
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and can_shoot:
 		shoot();
+		can_shoot = false;
+		$Timers/AttackCooldown.start();
 
 func move_player(delta: float) -> void:
 	# Get the input direction and the current velocity
@@ -26,3 +29,7 @@ func move_player(delta: float) -> void:
 func shoot():
 	print("Player has soot");
 	emit_signal("shoot_laser", position);
+
+
+func _on_attack_cooldown_timeout() -> void:
+	can_shoot = true;
