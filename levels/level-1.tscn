@@ -25,8 +25,6 @@ texture = ExtResource("2_lwl2t")
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="Monster" parent="enemies" instance=ExtResource("4_a6tn4")]
-position = Vector2(138, -93)
-scale = Vector2(7.48, 7.48)
 
 [node name="barriers" type="Node2D" parent="."]
 
