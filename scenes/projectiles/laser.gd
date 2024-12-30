@@ -15,5 +15,8 @@ func _process(delta: float) -> void:
 func _on_self_destruction_timer_timeout() -> void:
 	queue_free(); # Remove the laser from the scene if it's not destroyed by a collision
 
-func _on_body_entered(body: Node2D) -> void:
-	print("Laser hit: ", body);
+func _on_area_entered(area: Area2D) -> void:
+	print("entered area: ", area);
+	if area.has_method("damage"):
+		area.damage(damage);
+	queue_free();

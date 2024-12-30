@@ -25,7 +25,7 @@ func move_player(_delta: float) -> void:
 	move_and_slide();
 
 func shoot():
-	print("Player has soot");
+	print("Player has shoot");
 	emit_signal("shoot_laser", position);
 
 

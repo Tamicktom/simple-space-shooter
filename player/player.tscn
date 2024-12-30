@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://jheooagu58jl"]
+[gd_scene load_steps=5 format=3 uid="uid://jheooagu58jl"]
 
 [ext_resource type="Texture2D" uid="uid://60oh0xnfm2di" path="res://raw-sprites/space-ship.png" id="1_nvc0m"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_r72me"]
+[ext_resource type="PackedScene" uid="uid://bienh027tg8a2" path="res://components/HealthComponent.tscn" id="3_g7ya6"]
+[ext_resource type="PackedScene" uid="uid://qxuolg0mht4v" path="res://components/HitboxComponent.tscn" id="4_qv1r1"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 15
@@ -11,11 +13,19 @@ script = ExtResource("1_r72me")
 texture = ExtResource("1_nvc0m")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-61, 57, -61, 27, -12, 4, -6, -20, -1, -32, 2, -32, 6, -20, 11, 4, 61, 27, 61, 56)
 
 [node name="Timers" type="Node" parent="."]
 
 [node name="AttackCooldown" type="Timer" parent="Timers"]
 wait_time = 0.25
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_g7ya6")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_qv1r1")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxComponent"]
+polygon = PackedVector2Array(-61, 56, -61, 27, -11, 4, -5, -25, -2, -32, 2, -32, 5, -25, 11, 4, 61, 27, 61, 56)
 
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

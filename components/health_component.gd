@@ -1,10 +1,13 @@
 extends Node
 
-class_name Health;
+class_name HealthComponent;
+
 @export var MAX_HEALTH: int = 100;
 @onready var health: int = MAX_HEALTH;
 
 func damage(attack_damage: int) -> void:
+	# get parent node name
+	print(get_parent().name, " took ", attack_damage, " damage");
 	health -= attack_damage;
 	if health <= 0:
 		get_parent().queue_free();
