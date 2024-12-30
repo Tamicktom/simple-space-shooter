@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d0i0cf8tlo4kg" path="res://components/damage-number/DamageNumberPositionComponent.tscn" id="5_wr1vn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pa4op"]
-radius = 7.0
-height = 22.0
+radius = 31.0
+height = 96.0
 
 [node name="Monster" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,7 +18,7 @@ collision_mask = 17
 texture = ExtResource("1_nl03e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pa4op")
 
@@ -30,7 +30,7 @@ collision_mask = 17
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -2)
+position = Vector2(0, -16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pa4op")
 
@@ -38,13 +38,13 @@ shape = SubResource("CapsuleShape2D_pa4op")
 damage_number_position_component = [NodePath("DamageNumberPositionComponent"), NodePath("DamageNumberPositionComponent2"), NodePath("DamageNumberPositionComponent3"), NodePath("DamageNumberPositionComponent4")]
 
 [node name="DamageNumberPositionComponent4" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
-position = Vector2(11, 5)
+position = Vector2(46, 12)
 
 [node name="DamageNumberPositionComponent3" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
-position = Vector2(-11, 5)
+position = Vector2(-46, 11)
 
 [node name="DamageNumberPositionComponent2" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
-position = Vector2(-11, -9)
+position = Vector2(-41, -41)
 
 [node name="DamageNumberPositionComponent" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
-position = Vector2(11, -9)
+position = Vector2(43, -40)

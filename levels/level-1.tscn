@@ -41,5 +41,3 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/LeftBarrier"]
 shape = SubResource("RectangleShape2D_22mwg")
-
-[connection signal="shoot_laser" from="Player" to="." method="_on_player_shoot_laser"]

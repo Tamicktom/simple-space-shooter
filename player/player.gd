@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 class_name Player;
 
-signal shoot_laser(pos: Vector2);
-
+@onready var parent: Level = get_parent();
 @export var speed: float = 500.0;
 var can_shoot: bool = true;
 
@@ -25,7 +24,9 @@ func move_player(_delta: float) -> void:
 	move_and_slide();
 
 func shoot():
-	emit_signal("shoot_laser", position);
+	# if father is a Level
+	if parent is Level:
+		parent.player_shoot(position);
 
 
 func _on_attack_cooldown_timeout() -> void:
