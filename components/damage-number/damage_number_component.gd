@@ -2,7 +2,7 @@ extends Node2D
 
 class_name DamageNumberComponent;
 
-@onready var damage_label = preload("res://components/DamageNumberLabelComponent.tscn");
+@onready var damage_label = preload("res://components/damage-number/DamageNumberLabelComponent.tscn");
 
 func show_damage_number(attack_damage: int) -> void:
 	# grab all the children

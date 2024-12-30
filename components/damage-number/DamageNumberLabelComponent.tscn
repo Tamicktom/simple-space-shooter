@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cnejyo5sqcmbi"]
 
-[ext_resource type="Script" path="res://components/damage_number_label_component.gd" id="1_h8e37"]
+[ext_resource type="Script" path="res://components/damage-number/damage_number_label_component.gd" id="1_h8e37"]
 
 [node name="DamageNumberLabelComponent" type="Node2D"]
 script = ExtResource("1_h8e37")

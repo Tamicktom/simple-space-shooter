@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dqp8j2mbaidfs" path="res://raw-sprites/enemy-1.png" id="1_nl03e"]
 [ext_resource type="PackedScene" uid="uid://bienh027tg8a2" path="res://components/HealthComponent.tscn" id="2_ibo3u"]
 [ext_resource type="PackedScene" uid="uid://qxuolg0mht4v" path="res://components/HitboxComponent.tscn" id="3_dw3t3"]
-[ext_resource type="PackedScene" uid="uid://ceagx7b363q6c" path="res://components/DamageNumberComponent.tscn" id="4_7nkay"]
-[ext_resource type="PackedScene" uid="uid://d0i0cf8tlo4kg" path="res://components/DamageNumberPositionComponent.tscn" id="5_wr1vn"]
+[ext_resource type="PackedScene" uid="uid://ceagx7b363q6c" path="res://components/damage-number/DamageNumberComponent.tscn" id="4_7nkay"]
+[ext_resource type="PackedScene" uid="uid://d0i0cf8tlo4kg" path="res://components/damage-number/DamageNumberPositionComponent.tscn" id="5_wr1vn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pa4op"]
 radius = 7.0
