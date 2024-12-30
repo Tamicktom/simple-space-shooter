@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://jheooagu58jl"]
+
+[ext_resource type="Texture2D" uid="uid://60oh0xnfm2di" path="res://raw-sprites/space-ship.png" id="1_nvc0m"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_r72me"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_r72me")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nvc0m")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-61, 57, -61, 27, -12, 4, -6, -20, -1, -32, 2, -32, 6, -20, 11, 4, 61, 27, 61, 56)
