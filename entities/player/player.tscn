@@ -14,7 +14,6 @@ script = ExtResource("1_r72me")
 texture = ExtResource("1_nvc0m")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(-61, 57, -61, 27, -12, 4, -6, -20, -1, -32, 2, -32, 6, -20, 11, 4, 61, 27, 61, 56)
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_g7ya6")]
