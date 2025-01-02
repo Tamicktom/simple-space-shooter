@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnejyo5sqcmbi"]
+
+[ext_resource type="Script" path="res://components/damage-number/damage_number_label_component.gd" id="1_h8e37"]
+
+[node name="DamageNumberLabelComponent" type="Node2D"]
+script = ExtResource("1_h8e37")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "0"
+fit_content = true
+autowrap_mode = 0
+
+[node name="SelfDestructionTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SelfDestructionTimer" to="." method="_on_self_destruction_timer_timeout"]

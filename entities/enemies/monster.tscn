@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlyg7spmllrw4"]
+
+[ext_resource type="Texture2D" uid="uid://dqp8j2mbaidfs" path="res://raw-sprites/enemy-1.png" id="1_nl03e"]
+[ext_resource type="PackedScene" uid="uid://bienh027tg8a2" path="res://components/HealthComponent.tscn" id="2_ibo3u"]
+[ext_resource type="PackedScene" uid="uid://qxuolg0mht4v" path="res://components/HitboxComponent.tscn" id="3_dw3t3"]
+[ext_resource type="PackedScene" uid="uid://ceagx7b363q6c" path="res://components/damage-number/DamageNumberComponent.tscn" id="4_7nkay"]
+[ext_resource type="PackedScene" uid="uid://d0i0cf8tlo4kg" path="res://components/damage-number/DamageNumberPositionComponent.tscn" id="5_wr1vn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pa4op"]
+radius = 31.0
+height = 96.0
+
+[node name="Monster" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 17
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nl03e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pa4op")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_ibo3u")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_dw3t3")]
+collision_layer = 2
+collision_mask = 17
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pa4op")
+
+[node name="DamageNumberComponent" parent="." node_paths=PackedStringArray("damage_number_position_component") instance=ExtResource("4_7nkay")]
+damage_number_position_component = [NodePath("DamageNumberPositionComponent"), NodePath("DamageNumberPositionComponent2"), NodePath("DamageNumberPositionComponent3"), NodePath("DamageNumberPositionComponent4")]
+
+[node name="DamageNumberPositionComponent4" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
+position = Vector2(46, 12)
+
+[node name="DamageNumberPositionComponent3" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
+position = Vector2(-46, 11)
+
+[node name="DamageNumberPositionComponent2" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
+position = Vector2(-41, -41)
+
+[node name="DamageNumberPositionComponent" parent="DamageNumberComponent" instance=ExtResource("5_wr1vn")]
+position = Vector2(43, -40)
