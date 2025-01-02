@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6us5vgyknhdh"]
+[gd_scene load_steps=6 format=3 uid="uid://rgwem6ix6hx1"]
 
-[ext_resource type="Script" path="res://levels/level_1.gd" id="1_jcfxw"]
 [ext_resource type="PackedScene" uid="uid://jheooagu58jl" path="res://entities/player/player.tscn" id="1_ov2os"]
 [ext_resource type="Texture2D" uid="uid://qkvvgoml3wmw" path="res://icon.svg" id="2_lwl2t"]
 [ext_resource type="PackedScene" uid="uid://dlyg7spmllrw4" path="res://entities/enemies/monster.tscn" id="4_a6tn4"]
+
+[sub_resource type="GDScript" id="GDScript_q4o4w"]
+script/source = "extends Level;
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22mwg"]
 size = Vector2(74, 135)
 
 [node name="Level-1" type="Node2D"]
-script = ExtResource("1_jcfxw")
+script = SubResource("GDScript_q4o4w")
 
 [node name="Player" parent="." instance=ExtResource("1_ov2os")]
 position = Vector2(-3, 245)

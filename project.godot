@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="space-shooter"
-run/main_scene="res://levels/level-1.tscn"
+run/main_scene="res://levels/Level.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [input]
 

@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://brb42soa53a17"]
+[gd_scene load_steps=5 format=3 uid="uid://brb42soa53a17"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_tj1em"]
+[ext_resource type="PackedScene" uid="uid://jheooagu58jl" path="res://entities/player/player.tscn" id="2_py6um"]
+[ext_resource type="Texture2D" uid="uid://qkvvgoml3wmw" path="res://icon.svg" id="3_0pjbw"]
+[ext_resource type="PackedScene" uid="uid://dlyg7spmllrw4" path="res://entities/enemies/monster.tscn" id="4_4myls"]
 
 [node name="Level" type="Node"]
 script = ExtResource("1_tj1em")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_py6um")]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Scenary" type="Node2D" parent="."]
+
+[node name="Icon2" type="Sprite2D" parent="Scenary"]
+position = Vector2(557, -453)
+texture = ExtResource("3_0pjbw")
+
+[node name="Icon" type="Sprite2D" parent="Scenary"]
+position = Vector2(-534, 271)
+texture = ExtResource("3_0pjbw")
+
+[node name="Icon3" type="Sprite2D" parent="Scenary"]
+position = Vector2(557, -1933)
+texture = ExtResource("3_0pjbw")
+
+[node name="Icon4" type="Sprite2D" parent="Scenary"]
+position = Vector2(-534, -1209)
+texture = ExtResource("3_0pjbw")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Monster" parent="Enemies" instance=ExtResource("4_4myls")]
+position = Vector2(165, -938)
