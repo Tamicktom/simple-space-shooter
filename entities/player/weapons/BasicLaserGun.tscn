@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwpce1kkvfgu"]
+
+[ext_resource type="PackedScene" uid="uid://b1533dai5nkuh" path="res://entities/player/weapons/WeaponComponent.tscn" id="1_xk11d"]
+
+[node name="BasicLaserGun" type="Node2D"]
+
+[node name="WeaponComponent" parent="." node_paths=PackedStringArray("fire_positions") instance=ExtResource("1_xk11d")]
+fire_positions = [NodePath("../FireMarkers/Marker2D")]
+
+[node name="FireMarkers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="FireMarkers"]

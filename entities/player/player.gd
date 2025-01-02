@@ -15,10 +15,10 @@ enum ControlType {MOUSE, KEYBOARD}
 func _process(delta: float) -> void:
 	move_player(delta);
 
-	if Input.is_action_pressed("shoot") and can_shoot:
-		shoot();
-		can_shoot = false;
-		$Timers/AttackCooldown.start();
+	#if Input.is_action_pressed("shoot") and can_shoot:
+		#shoot();
+		#can_shoot = false;
+		#$Timers/AttackCooldown.start();
 
 func move_player(_delta: float) -> void:
 	if control_type == ControlType.MOUSE:
@@ -46,10 +46,10 @@ func move_player_by_mouse(_delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO;
 
-func shoot():
-	# if father is a Level
-	if parent is Level:
-		parent.player_shoot(position);
+#func shoot():
+	## if father is a Level
+	#if parent is Level:
+		#parent.player_shoot(position);
 
 
 func _on_attack_cooldown_timeout() -> void:

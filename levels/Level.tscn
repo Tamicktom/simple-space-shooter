@@ -33,7 +33,7 @@ func _on_body_entered(body: Node2D) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewgan"]
 size = Vector2(183, 165)
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" groups=["Level"]]
 script = ExtResource("1_tj1em")
 
 [node name="Camera2D" type="Camera2D" parent="."]
