@@ -17,11 +17,6 @@ texture = ExtResource("1_nvc0m")
 visible = false
 polygon = PackedVector2Array(-61, 57, -61, 27, -12, 4, -6, -20, -1, -32, 2, -32, 6, -20, 11, 4, 61, 27, 61, 56)
 
-[node name="Timers" type="Node" parent="."]
-
-[node name="AttackCooldown" type="Timer" parent="Timers"]
-wait_time = 0.25
-
 [node name="HealthComponent" parent="." instance=ExtResource("3_g7ya6")]
 
 [node name="HitboxComponent" parent="." instance=ExtResource("4_qv1r1")]
@@ -32,5 +27,3 @@ polygon = PackedVector2Array(-61, 56, -61, 27, -11, 4, -5, -25, -2, -32, 2, -32,
 [node name="Gun" type="Node2D" parent="."]
 
 [node name="BasicLaserGun" parent="Gun" instance=ExtResource("5_q1pl5")]
-
-[connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

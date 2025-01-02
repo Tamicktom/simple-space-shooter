@@ -6,7 +6,6 @@ class_name Player;
 @export var speed: float = 500.0;
 # This is the distance from the player to the mouse to start moving the player
 @export var mouse_player_distance_threshold: float = 8.0; 
-var can_shoot: bool = true;
 
 enum ControlType {MOUSE, KEYBOARD}
 @export var control_type: ControlType = ControlType.MOUSE;
@@ -14,11 +13,6 @@ enum ControlType {MOUSE, KEYBOARD}
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	move_player(delta);
-
-	#if Input.is_action_pressed("shoot") and can_shoot:
-		#shoot();
-		#can_shoot = false;
-		#$Timers/AttackCooldown.start();
 
 func move_player(_delta: float) -> void:
 	if control_type == ControlType.MOUSE:
@@ -45,12 +39,3 @@ func move_player_by_mouse(_delta: float) -> void:
 		velocity = direction * speed;
 	else:
 		velocity = Vector2.ZERO;
-
-#func shoot():
-	## if father is a Level
-	#if parent is Level:
-		#parent.player_shoot(position);
-
-
-func _on_attack_cooldown_timeout() -> void:
-	can_shoot = true;
