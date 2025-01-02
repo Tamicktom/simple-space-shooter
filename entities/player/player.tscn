@@ -29,6 +29,8 @@ wait_time = 0.25
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxComponent"]
 polygon = PackedVector2Array(-61, 56, -61, 27, -11, 4, -5, -25, -2, -32, 2, -32, 5, -25, 11, 4, 61, 27, 61, 56)
 
-[node name="BasicLaserGun" parent="." instance=ExtResource("5_q1pl5")]
+[node name="Gun" type="Node2D" parent="."]
+
+[node name="BasicLaserGun" parent="Gun" instance=ExtResource("5_q1pl5")]
 
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -5,6 +5,7 @@
 [node name="BasicLaserGun" type="Node2D"]
 
 [node name="WeaponComponent" parent="." node_paths=PackedStringArray("fire_positions") instance=ExtResource("1_xk11d")]
+fire_rate = 0.2
 fire_positions = [NodePath("../FireMarkers/Marker2D")]
 
 [node name="FireMarkers" type="Node2D" parent="."]
