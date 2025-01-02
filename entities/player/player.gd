@@ -7,7 +7,7 @@ class_name Player;
 # This is the distance from the player to the mouse to start moving the player
 @export var mouse_player_distance_threshold: float = 8.0; 
 
-enum ControlType {MOUSE, KEYBOARD}
+enum ControlType { MOUSE, KEYBOARD };
 @export var control_type: ControlType = ControlType.MOUSE;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
