@@ -9,6 +9,7 @@ class_name Level;
 
 @onready var player: Player = $Player;
 @onready var camera: Camera2D = $Camera2D;
+@onready var walls: StaticBody2D = $Walls;
 
 func _ready() -> void:
 	player.position.y = 0;
@@ -16,6 +17,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	move_upwards(delta);
+	pass;
 
 func player_shoot(pos:Vector2) -> void:
 	var laser:Laser = laser_scene.instantiate();
@@ -27,4 +29,5 @@ func player_shoot(pos:Vector2) -> void:
 func move_upwards(delta: float) -> void:
 	player.position.y -= level_speed * delta;
 	camera.position.y -= level_speed * delta;
+	walls.position.y -= level_speed * delta;
 	player.move_and_slide();
