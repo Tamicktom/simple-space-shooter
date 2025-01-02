@@ -7,6 +7,7 @@ class_name Level;
 @export var level_time: float = 300.0; # 5 minutes
 @export var level_speed: float = 100.0; # units per second
 
+@onready var level_music: AudioStreamPlayer = $Theme;
 @onready var player: Player = $Player;
 @onready var camera: Camera2D = $Camera2D;
 @onready var walls: StaticBody2D = $Walls;
@@ -24,6 +25,10 @@ var move_direction: MoveDirection = MoveDirection.STOP;
 func _ready() -> void:
 	player.position.y = 0;
 	camera.position.y = 0;
+	# choose music
+	level_music.stream = load("res://sound/music/level-1.mp3");
+	level_music.volume_db = ConfigOptions.parse_percentage_to_db(ConfigOptions.music_volume_percentage);
+	level_music.play();
 
 func _process(delta: float) -> void:
 	move_player(delta);

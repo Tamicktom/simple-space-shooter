@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brb42soa53a17"]
+[gd_scene load_steps=12 format=3 uid="uid://brb42soa53a17"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_tj1em"]
 [ext_resource type="PackedScene" uid="uid://jheooagu58jl" path="res://entities/player/player.tscn" id="2_py6um"]
@@ -32,6 +32,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewgan"]
 size = Vector2(183, 165)
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_xbuud"]
 
 [node name="Level" type="Node" groups=["Level"]]
 script = ExtResource("1_tj1em")
@@ -90,5 +92,9 @@ script = SubResource("GDScript_y0xli")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-525, -255)
 shape = SubResource("RectangleShape2D_ewgan")
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_xbuud")
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
