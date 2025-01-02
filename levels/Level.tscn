@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brb42soa53a17"]
+[gd_scene load_steps=11 format=3 uid="uid://brb42soa53a17"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_tj1em"]
 [ext_resource type="PackedScene" uid="uid://jheooagu58jl" path="res://entities/player/player.tscn" id="2_py6um"]
@@ -16,6 +16,22 @@ size = Vector2(1285.5, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1763a"]
 size = Vector2(1279.5, 75)
+
+[sub_resource type="GDScript" id="GDScript_y0xli"]
+resource_name = "teste_move"
+script/source = "extends Area2D;
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		print(\"player has entered\");
+		var level: Level = get_parent();
+		level.move_direction = Level.MoveDirection.UP;
+		print(\"Started moving upwards\");
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewgan"]
+size = Vector2(183, 165)
 
 [node name="Level" type="Node"]
 script = ExtResource("1_tj1em")
@@ -67,3 +83,12 @@ shape = SubResource("RectangleShape2D_8rh78")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2(1.75, -410.5)
 shape = SubResource("RectangleShape2D_1763a")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_y0xli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-525, -255)
+shape = SubResource("RectangleShape2D_ewgan")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

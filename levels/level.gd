@@ -11,12 +11,22 @@ class_name Level;
 @onready var camera: Camera2D = $Camera2D;
 @onready var walls: StaticBody2D = $Walls;
 
+enum MoveDirection {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+	STOP
+}
+
+var move_direction: MoveDirection = MoveDirection.STOP;
+
 func _ready() -> void:
 	player.position.y = 0;
 	camera.position.y = 0;
 
 func _process(delta: float) -> void:
-	move_upwards(delta);
+	move_player(delta);
 	pass;
 
 func player_shoot(pos:Vector2) -> void:
@@ -31,3 +41,34 @@ func move_upwards(delta: float) -> void:
 	camera.position.y -= level_speed * delta;
 	walls.position.y -= level_speed * delta;
 	player.move_and_slide();
+
+func move_downwards(delta: float) -> void:
+	player.position.y += level_speed * delta;
+	camera.position.y += level_speed * delta;
+	walls.position.y += level_speed * delta;
+	player.move_and_slide();
+
+func move_leftwards(delta: float) -> void:
+	player.position.x -= level_speed * delta;
+	camera.position.x -= level_speed * delta;
+	walls.position.x -= level_speed * delta;
+	player.move_and_slide();
+
+func move_rightwards(delta: float) -> void:
+	player.position.x += level_speed * delta;
+	camera.position.x += level_speed * delta;
+	walls.position.x += level_speed * delta;
+	player.move_and_slide();
+
+func move_player(delta: float) -> void:
+	match move_direction:
+		MoveDirection.UP:
+			move_upwards(delta);
+		MoveDirection.DOWN:
+			move_downwards(delta);
+		MoveDirection.LEFT:
+			move_leftwards(delta);
+		MoveDirection.RIGHT:
+			move_rightwards(delta);
+		MoveDirection.STOP:
+			pass;

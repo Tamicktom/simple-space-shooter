@@ -9,7 +9,7 @@ class_name Player;
 var can_shoot: bool = true;
 
 enum ControlType {MOUSE, KEYBOARD}
-@export var control_type: ControlType = ControlType.KEYBOARD;
+@export var control_type: ControlType = ControlType.MOUSE;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
