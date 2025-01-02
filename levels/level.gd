@@ -27,7 +27,7 @@ func _ready() -> void:
 	camera.position.y = 0;
 	# choose music
 	level_music.stream = load("res://sound/music/level-1.mp3");
-	level_music.volume_db = ConfigOptions.parse_percentage_to_db(ConfigOptions.music_volume_percentage);
+	level_music.volume_db = ConfigOptions.get_property(ConfigOptions.VolumeProperty.MUSIC);
 	level_music.play();
 
 func _process(delta: float) -> void:
